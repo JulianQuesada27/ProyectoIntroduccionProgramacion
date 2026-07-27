@@ -11,6 +11,9 @@ package com.mycompany.proyectointroduccionprogramacion;
 public class ProyectoIntroduccionProgramacion {
 
     public static void main(String[] args) {
-        System.out.println("Hello");
+     import javax.swing.JOptionPane;
+
+public class Menu {
+
     }
 }
