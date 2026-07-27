@@ -1,0 +1,69 @@
+package com.mycompany.Biblioteca;
+
+import javax.swing.JOptionPane;
+
+public class Menu {
+
+    public void mostrarMenu() {
+
+        int opcion;
+
+        do {
+
+            opcion = Integer.parseInt(JOptionPane.showInputDialog(
+                    "========== MENÚ ==========\n\n"
+                  + "1. Biblioteca\n"
+                  + "2. Devolución\n"
+                  + "3. Libro\n"
+                  + "4. Préstamo\n"
+                  + "5. Reporte\n"
+                  + "6. Usuario\n"
+                  + "7. Validaciones\n"
+                  + "8. Salir\n\n"
+                  + "Seleccione una opción:"
+            ));
+
+            switch (opcion) {
+
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Módulo Biblioteca");
+                    break;
+
+                case 2:
+                    JOptionPane.showMessageDialog(null, "Módulo Devolución");
+                    break;
+
+                case 3:
+                    JOptionPane.showMessageDialog(null, "Módulo Libro");
+                    break;
+
+                case 4:
+                    JOptionPane.showMessageDialog(null, "Módulo Préstamo");
+                    break;
+
+                case 5:
+                    JOptionPane.showMessageDialog(null, "Módulo Reporte");
+                    break;
+
+                case 6:
+                    JOptionPane.showMessageDialog(null, "Módulo Usuario");
+                    break;
+
+                case 7:
+                    JOptionPane.showMessageDialog(null, "Módulo Validaciones");
+                    break;
+
+                case 8:
+                    JOptionPane.showMessageDialog(null, "Gracias por utilizar el sistema.");
+                    break;
+
+                default:
+                    JOptionPane.showMessageDialog(null, "Opción no válida.");
+                    break;
+            }
+
+        } while (opcion != 8);
+
+    }
+
+}
