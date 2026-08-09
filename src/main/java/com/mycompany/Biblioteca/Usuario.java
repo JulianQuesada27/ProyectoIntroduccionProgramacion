@@ -6,7 +6,7 @@ package com.mycompany.Biblioteca;
 
 /**
  *
- * @author julianquesadamora
+ * @author Sebastianmora
  */
 public class Usuario {
     // Atributos
@@ -52,6 +52,10 @@ public class Usuario {
         return "Identificación: " + id +
              "\nNombre: " + nombre +
              "\nTeléfono: " + telefono + "\n";
+    }
+
+    Object getCedula() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

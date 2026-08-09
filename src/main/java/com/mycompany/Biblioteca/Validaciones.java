@@ -6,15 +6,14 @@ package com.mycompany.Biblioteca;
 
 /**
  *
- * @author julianquesadamora
- * @author Sebastian24Cracker
+ * @author Sebastianmora
  */
 
 import javax.swing.JOptionPane;
 
 public class Validaciones {
 
-    // 1. Confirmar existencia del libro en el arreglo según su código
+    
     public static boolean existeLibro(Libro[] libros, String codigo) {
         if (libros == null || codigo == null) {
             return false;
@@ -29,7 +28,7 @@ public class Validaciones {
         return false;
     }
 
-    // 2. Confirmar existencia del usuario en el arreglo según su cédula
+    
     public static boolean existeUsuario(Usuario[] usuarios, String cedula) {
         if (usuarios == null || cedula == null) {
             return false;
@@ -45,7 +44,7 @@ public class Validaciones {
         return false;
     }
 
-    // 3. Validar si el libro está disponible para préstamo
+    
     public static boolean esLibroDisponible(Libro[] libros, String codigo) {
         if (libros == null || codigo == null) {
             return false;
@@ -60,7 +59,7 @@ public class Validaciones {
         return false;
     }
 
-    // 4. Validar si existe un préstamo activo para determinado libro
+    
     public static boolean estaPrestado(Prestamo[] prestamos, String codigoLibro) {
         if (prestamos == null || codigoLibro == null) {
             return false;
@@ -76,7 +75,7 @@ public class Validaciones {
         return false;
     }
 
-    // 5. Validar que la cadena ingresada no esté vacía ni sea nula
+    
     public static boolean validarTextoNoVacio(String texto, String nombreCampo) {
         if (texto == null || texto.trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, 
@@ -88,7 +87,7 @@ public class Validaciones {
         return true;
     }
 
-    // 6. Validar entrada de números enteros en ventanas JOptionPane
+     
     public static boolean validarEntero(String texto, String nombreCampo) {
         if (!validarTextoNoVacio(texto, nombreCampo)) {
             return false;
