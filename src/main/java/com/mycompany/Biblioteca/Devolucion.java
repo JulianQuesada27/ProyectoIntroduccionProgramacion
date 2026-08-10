@@ -49,4 +49,7 @@ public class Devolucion {
                " | ID Usuario: " + idUsuario + 
                " | Fecha Devolución: " + fechaDevolucion;
     }
+    public String toString() {
+        return mostrarInfo();
+    }
 }

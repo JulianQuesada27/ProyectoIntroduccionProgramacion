@@ -4,7 +4,9 @@
 
 package com.mycompany.proyectointroduccionprogramacion;
 
+import com.mycompany.Biblioteca.Devolucion;
 import com.mycompany.Biblioteca.Libro;
+import com.mycompany.Biblioteca.Prestamo;
 import com.mycompany.Biblioteca.Usuario;
 import javax.swing.JOptionPane;
 
@@ -22,8 +24,12 @@ public class ProyectoIntroduccionProgramacion {
 
     static Libro[] listaLibros = new Libro[50];
     static Usuario[] listaUsuarios = new Usuario[50];
+    static Prestamo[] listaPrestamos = new Prestamo[50];
+    static Devolucion[] listaDevoluciones = new Devolucion[50];
     static int contLibros = 0;
     static int contUsuarios = 0;
+    static int contPrestamos = 0;
+    static int contDevoluciones = 0;
 
     public static void main(String[] args) {
         
@@ -329,13 +335,226 @@ public class ProyectoIntroduccionProgramacion {
                 } while (subOpcion != 6);
             }
 
-            // ========== OTRAS OPCIONES ==========
+            
             else if (opcion == 3) {
-                JOptionPane.showMessageDialog(null, "Módulo de PRÉSTAMOS (pendiente)");
+                String subTexto;
+                int subOpcion;
+                do {
+                    subTexto = JOptionPane.showInputDialog(
+                        "=== MÓDULO DE PRÉSTAMOS ===\n" +
+                        "1. Registrar préstamo\n" +
+                        "2. Consultar préstamo\n" +
+                        "3. Ver préstamos activos\n" +
+                        "4. Regresar al menú principal\n\n" +
+                        "Seleccione una opción:"
+                    );
+
+                    if (subTexto == null) {
+                        subOpcion = 4;
+                    } else {
+                        subOpcion = Integer.parseInt(subTexto);
+                    }
+
+                    // 1. REGISTRAR PRÉSTAMO
+                    if (subOpcion == 1) {
+                        if (contLibros == 0) {
+                            JOptionPane.showMessageDialog(null, "No hay libros registrados");
+                        }
+                        else if (contUsuarios == 0) {
+                            JOptionPane.showMessageDialog(null, "No hay usuarios registrados");
+                        }
+                        else {
+                            String codigoLibro = JOptionPane.showInputDialog("Digite el código del libro a prestar:");
+                            String idUsuario = JOptionPane.showInputDialog("Digite la identificación del usuario:");
+                            String fechaPrestamo = JOptionPane.showInputDialog("Digite la fecha de préstamo:");
+                            String fechaEntrega = JOptionPane.showInputDialog("Digite la fecha de entrega:");
+
+                            // Verificar que el libro existe
+                            boolean libroExiste = false;
+                            for (int i = 0; i < contLibros; i++) {
+                                if (listaLibros[i].getCodigo().equals(codigoLibro)) {
+                                    libroExiste = true;
+                                    break;
+                                }
+                            }
+
+                            // Verificar que el usuario existe
+                            boolean usuarioExiste = false;
+                            for (int i = 0; i < contUsuarios; i++) {
+                                if (listaUsuarios[i].getId().equals(idUsuario)) {
+                                    usuarioExiste = true;
+                                    break;
+                                }
+                            }
+
+                            if (!libroExiste) {
+                                JOptionPane.showMessageDialog(null, " El libro no existe en el sistema");
+                            }
+                            else if (!usuarioExiste) {
+                                JOptionPane.showMessageDialog(null, "El usuario no existe en el sistema");
+                            }
+                            else {
+                                // Registrar el préstamo
+                                Prestamo nuevoPrestamo = new Prestamo(codigoLibro, idUsuario, fechaPrestamo, fechaEntrega);
+                                listaPrestamos[contPrestamos] = nuevoPrestamo;
+                                contPrestamos = contPrestamos + 1;
+
+                                JOptionPane.showMessageDialog(null, 
+                                    "PRÉSTAMO REGISTRADO:\n\n" + nuevoPrestamo.mostrarInfo());
+                            }
+                        }
+                    }
+
+                    // 2. CONSULTAR PRÉSTAMO (por código de libro)
+                    else if (subOpcion == 2) {
+                        if (contPrestamos == 0) {
+                            JOptionPane.showMessageDialog(null, "📋 No hay préstamos registrados");
+                        } else {
+                            String codigoBuscar = JOptionPane.showInputDialog("Digite el código del libro del préstamo a buscar:");
+                            boolean encontrado = false;
+
+                            for (int i = 0; i < contPrestamos; i++) {
+                                if (listaPrestamos[i].getCodigoLibro().equals(codigoBuscar)) {
+                                    JOptionPane.showMessageDialog(null, "PRÉSTAMO ENCONTRADO:\n\n" + listaPrestamos[i].mostrarInfo());
+                                    encontrado = true;
+                                    break;
+                                }
+                            }
+
+                            if (encontrado == false) {
+                                JOptionPane.showMessageDialog(null, "Préstamo NO encontrado");
+                            }
+                        }
+                    }
+
+                    // 3. VER TODOS LOS PRÉSTAMOS
+                    else if (subOpcion == 3) {
+                        if (contPrestamos == 0) {
+                            JOptionPane.showMessageDialog(null, " No hay préstamos registrados");
+                        } else {
+                            String lista = "=== LISTA DE PRÉSTAMOS ===\n\n";
+                            for (int i = 0; i < contPrestamos; i++) {
+                                lista = lista + listaPrestamos[i].mostrarInfo() + "\n";
+                            }
+                            JOptionPane.showMessageDialog(null, lista);
+                        }
+                    }
+
+                    // 4. REGRESAR
+                    else if (subOpcion == 4) {
+                        JOptionPane.showMessageDialog(null, "Volviendo al menú principal...");
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Opción no válida");
+                    }
+
+                } while (subOpcion != 4);
             }
+            
             else if (opcion == 4) {
-                JOptionPane.showMessageDialog(null, "↩Módulo de DEVOLUCIONES (pendiente)");
+                String subTexto;
+                int subOpcion;
+                do {
+                    subTexto = JOptionPane.showInputDialog(
+                        "=== MÓDULO DE DEVOLUCIONES ===\n" +
+                        "1. Registrar devolución\n" +
+                        "2. Actualizar disponibilidad\n" +
+                        "3. Consultar historial\n" +
+                        "4. Regresar al menú principal\n\n" +
+                        "Seleccione una opción:"
+                    );
+
+                    if (subTexto == null) {
+                        subOpcion = 4;
+                    } else {
+                        subOpcion = Integer.parseInt(subTexto);
+                    }
+
+                    // 1. REGISTRAR DEVOLUCIÓN
+                    if (subOpcion == 1) {
+                        if (contPrestamos == 0) {
+                            JOptionPane.showMessageDialog(null, "No hay préstamos registrados para devolver");
+                        }
+                        else {
+                            String codigoLibro = JOptionPane.showInputDialog("Digite el código del libro que devuelve:");
+                            String idUsuario = JOptionPane.showInputDialog("Digite la identificación del usuario:");
+                            String fechaDevolucion = JOptionPane.showInputDialog("Digite la fecha de devolución:");
+
+                            // Verificar que existe ese préstamo
+                            boolean prestamoExiste = false;
+                            for (int i = 0; i < contPrestamos; i++) {
+                                if (listaPrestamos[i].getCodigoLibro().equals(codigoLibro) &&
+                                    listaPrestamos[i].getIdUsuario().equals(idUsuario)) {
+                                    prestamoExiste = true;
+                                    break;
+                                }
+                            }
+
+                            if (!prestamoExiste) {
+                                JOptionPane.showMessageDialog(null, "No existe un préstamo con esos datos");
+                            }
+                            else {
+                                // Registrar la devolución
+                                Devolucion nuevaDevolucion = new Devolucion(codigoLibro, idUsuario, fechaDevolucion);
+                                listaDevoluciones[contDevoluciones] = nuevaDevolucion;
+                                contDevoluciones = contDevoluciones + 1;
+
+                                JOptionPane.showMessageDialog(null, 
+                                    "DEVOLUCIÓN REGISTRADA:\n\n" + nuevaDevolucion.mostrarInfo());
+                            }
+                        }
+                    }
+
+                    // 2. ACTUALIZAR DISPONIBILIDAD
+                    else if (subOpcion == 2) {
+                        if (contDevoluciones == 0) {
+                            JOptionPane.showMessageDialog(null, "📋 No hay devoluciones registradas");
+                        }
+                        else {
+                            String codigoLibro = JOptionPane.showInputDialog("Digite el código del libro a actualizar:");
+                            boolean encontrado = false;
+
+                            // Buscar el libro y confirmar que ya fue devuelto
+                            for (int i = 0; i < contDevoluciones; i++) {
+                                if (listaDevoluciones[i].getCodigoLibro().equals(codigoLibro)) {
+                                    JOptionPane.showMessageDialog(null, 
+                                        "Disponibilidad ACTUALIZADA:\nEl libro " + codigoLibro + " ya está DISPONIBLE");
+                                    encontrado = true;
+                                    break;
+                                }
+                            }
+
+                            if (encontrado == false) {
+                                JOptionPane.showMessageDialog(null, " Libro no encontrado en devoluciones");
+                            }
+                        }
+                    }
+
+                    // 3. CONSULTAR HISTORIAL
+                    else if (subOpcion == 3) {
+                        if (contDevoluciones == 0) {
+                            JOptionPane.showMessageDialog(null, "No hay devoluciones registradas");
+                        } else {
+                            String lista = "=== HISTORIAL DE DEVOLUCIONES ===\n\n";
+                            for (int i = 0; i < contDevoluciones; i++) {
+                                lista = lista + listaDevoluciones[i].mostrarInfo() + "\n";
+                            }
+                            JOptionPane.showMessageDialog(null, lista);
+                        }
+                    }
+
+                    // 4. REGRESAR
+                    else if (subOpcion == 4) {
+                        JOptionPane.showMessageDialog(null, "Volviendo al menú principal...");
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Opción no válida");
+                    }
+
+                } while (subOpcion != 4);
             }
+            
+            // ========== OTRAS OPCIONES ==========
             else if (opcion == 5) {
                 JOptionPane.showMessageDialog(null, "Módulo de CONSULTAS (pendiente)");
             }

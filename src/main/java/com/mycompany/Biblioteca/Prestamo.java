@@ -62,4 +62,7 @@ public class Prestamo {
                " | Fecha Préstamo: " + fechaPrestamo + 
                " | Fecha Entrega: " + fechaEntrega;
     }
+        public String toString() {
+        return mostrarInfo();
+    }
 }
