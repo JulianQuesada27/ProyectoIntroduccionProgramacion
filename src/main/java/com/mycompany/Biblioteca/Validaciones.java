@@ -9,7 +9,6 @@ package com.mycompany.Biblioteca;
 <<<<<<< HEAD
  * @author Sebastianmora
 =======
- * @author julianquesadamora
 >>>>>>> parent of 4ecd870 (Update Validaciones.java)
  */
 public class Validaciones {
