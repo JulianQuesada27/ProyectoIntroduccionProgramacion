@@ -6,11 +6,11 @@ package com.mycompany.Biblioteca;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Joshua
+ * @author julianquesadamora
  */
 public class Consultas {
-
-// ==================== CONSULTAR TODOS LOS LIBROS ====================
+    
+    // ==================== CONSULTAR TODOS LOS LIBROS ====================
     public static void consultarLibros(Libro[] libros, int cantidadLibros) {
         if (cantidadLibros == 0) {
             JOptionPane.showMessageDialog(null, "No hay libros registrados.");
@@ -161,5 +161,5 @@ public class Consultas {
 
         } while (opcion != 7);
     }
-
+    
 }

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.Biblioteca;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author julianquesadamora
@@ -180,4 +180,4 @@ public class Reporte {
 
 
     
-}
+

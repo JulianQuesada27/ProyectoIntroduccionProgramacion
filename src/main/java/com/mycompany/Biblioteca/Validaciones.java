@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 
 public class Validaciones {
 
-    /**
-     * Confirma la existencia de un libro en el arreglo según su código.
+    
+     /*  Confirma la existencia de un usuario en el arreglo según su cédula.
      * @param libros
      * @param codigo
      */
@@ -27,9 +27,7 @@ public class Validaciones {
         return false;
     }
 
-    /**
-     * Confirma la existencia de un usuario en el arreglo según su cédula.
-     */
+    //Confirma la existencia de un usuario en el arreglo según su cédula.
     public static boolean existeUsuario(Usuario[] usuarios, String cedula) {
         if (usuarios == null || cedula == null) {
             return false;
@@ -44,8 +42,8 @@ public class Validaciones {
         return false;
     }
 
-    /**
-     * Valida si un libro existe y está disponible para préstamo.
+   
+    /* Valida si un libro existe y está disponible para préstamo.
      */
     public static boolean esLibroDisponible(Libro[] libros, String codigo) {
         if (libros == null || codigo == null) {
@@ -61,9 +59,8 @@ public class Validaciones {
         return false;
     }
 
-    /**
-     * Valida si un usuario ya posee un préstamo activo para evitar duplicados.
-     */
+    //Valida si un usuario ya posee un préstamo activo para evitar duplicados.
+    
     public static boolean tienePrestamoActivo(Prestamo[] prestamos, String cedulaUsuario) {
         if (prestamos == null || cedulaUsuario == null) {
             return false;
@@ -79,8 +76,8 @@ public class Validaciones {
         return false;
     }
 
-    /**
-     * Valida que la cadena ingresada no esté vacía ni sea nula.
+    
+     /* Valida que la cadena ingresada no esté vacía ni sea nula.
      */
     public static boolean validarTextoNoVacio(String texto, String nombreCampo) {
         if (texto == null || texto.trim().isEmpty()) {
@@ -93,8 +90,7 @@ public class Validaciones {
         return true;
     }
 
-    /**
-     * Valida que una entrada de texto sea un número entero válido.
+    /* Valida que una entrada de texto sea un número entero válido.
      */
     public static boolean validarEntero(String texto, String nombreCampo) {
         if (!validarTextoNoVacio(texto, nombreCampo)) {
