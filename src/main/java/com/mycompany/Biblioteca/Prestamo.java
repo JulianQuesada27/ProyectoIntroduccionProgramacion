@@ -9,5 +9,13 @@ package com.mycompany.Biblioteca;
  * @author julianquesadamora
  */
 public class Prestamo {
+
+    Object getCodigoLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    boolean isActivo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
