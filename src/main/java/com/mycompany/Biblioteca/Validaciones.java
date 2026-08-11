@@ -6,14 +6,11 @@ package com.mycompany.Biblioteca;
 
 /**
  *
-<<<<<<< HEAD
+
+/**
  * @author Sebastianmora
-=======
- * @author julianquesadamora
->>>>>>> parent of 4ecd870 (Update Validaciones.java)
  */
 public class Validaciones {
-<<<<<<< HEAD
 
     
     public static boolean existeLibro(Libro[] libros, String codigo) {
@@ -106,7 +103,5 @@ public class Validaciones {
         }
     }
 }
-=======
+
     
-}
->>>>>>> parent of 4ecd870 (Update Validaciones.java)
